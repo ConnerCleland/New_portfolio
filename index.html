@@ -7,14 +7,30 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="animated-words">
-        <span class="letter">C</span>
-        <span class="letter">o</span>
-        <span class="letter">n</span>
-        <span class="letter">n</span>
-        <span class="letter">e</span>
-        <span class="letter">r</span>
+    <div class="header">
+        <div class="animated-words">
+            <span class="letter">C</span>
+            <span class="letter">o</span>
+            <span class="letter">n</span>
+            <span class="letter">n</span>
+            <span class="letter">e</span>
+            <span class="letter">r</span>
+            <span class="space"></span>
+            <span class="letter">C</span>
+            <span class="letter">l</span>
+            <span class="letter">e</span>
+            <span class="letter">l</span>
+            <span class="letter">a</span>
+            <span class="letter">n</span>
+            <span class="letter">d</span>
+        </div>
+        <button class="cbtn">click me</button>
     </div>
+    <br>
+    <section>
+        <h1>About Me</h1>
+        <pre>|`````````````````````````````````````````````````````````````````````````````|<br>| Hello my name is Conner Cleland I wanted to always work with technology     | <br>| I worked with hardware for 2 years then I found a Free coding camp in MS    |<br>| it was in Water Valley MS it lasted 12 months and you recived a ceritficate |<br>| and you also get 45 college credits, I have always had a good passion for   |<br>| this software and hardware side of computers.                               |<br>|~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|</pre>
+    </section>
     <section>
         <h1>Projects</h1>
         <div class="card">
@@ -32,11 +48,34 @@
         </div>
     </section>
     <br>
-    <div>
-        This is my Contact me 
-    </div>
+    <footer>
+        <section>
+            <h1>Contact Me</h1>
+            <p>Feel free to get in touch with me. I'm always open to new opportunities and collaborations.</p>
+            <ul class="contact-info">
+                <li>Email: <a href="mailto:Chcleland2@gmail.com.com">Chcleland2@gmail.com</a></li>
+                <li>Phone: <a href="tel:+16015737014">+1 (601) 573-7013</a></li>
+            </ul>
+        </section>
+    </footer>
     
-    </main>
-    <br>
+    
+    <script>
+        const letters = document.querySelectorAll('.letter');
+
+        letters.forEach((letter, index) => {
+            const originalColor = getComputedStyle(letter).color;
+
+            setTimeout(() => {
+                letter.style.transform = 'translateY(-1rem)';
+                letter.style.color = 'yellow';
+
+                setTimeout(() => {
+                    letter.style.transform = 'translateY(0)';
+                    letter.style.color = originalColor;
+                }, 250); 
+            }, index * 250); 
+        });
+    </script>
 </body>
 </html>
