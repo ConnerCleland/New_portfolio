@@ -101,25 +101,26 @@ body {
 }
 
 .cbtn {
-    padding: 10px 20px;
     color: #ffffff;
     border: none;
-    border-radius: 5px;
+    border-radius: 5.5px;
     cursor: pointer;
     font-size: 16px;
-    margin: 10px;
-    animation: colorChange 5s infinite; /* Adjust the duration as needed */
+    position: absolute;
+    margin-top: -50px;
+    margin-left: 300px; /* Adjust the margin-left value to move the button to the right */
+    animation: colorChange 5s infinite; 
 }
 
 @keyframes colorChange {
     0% {
-        background-color: rgb(77, 219, 174); /* Start color */
+        background-color: rgb(255, 86, 116); /* Retro Start color */
     }
     50% {
-        background-color: rgb(64, 197, 124); /* Mid color */
+        background-color: rgb(255, 209, 102); /* Retro Mid color */
     }
     100% {
-        background-color: rgb(165, 202, 117); /* End color */
+        background-color: rgb(112, 120, 247); /* Retro End color */
     }
 }
 
