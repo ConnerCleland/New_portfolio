@@ -25,15 +25,19 @@
             <span class="letter">d</span>
         </div>
         <div>
-            <button class="cbtn">click me</button>
+            <button class="cbtn">GitHub</button>
+            <button class="cbtn-below">Linkedin</button>
         </div>
+        
+        
+        
     </div>
     <br>
-    <section>
-        <h1>About Me</h1>
-        <pre>|`````````````````````````````````````````````````````````````````````````````|<br>| Hello my name is Conner Cleland I wanted to always work with technology     | <br>| I worked with hardware for 2 years then I found a Free coding camp in MS    |<br>| it was in Water Valley MS it lasted 12 months and you recived a ceritficate |<br>| and you also get 45 college credits, I have always had a good passion for   |<br>| this software and hardware side of computers.                               |<br>|~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|</pre>
+    <section id="about-section" class="about-section animate-on-load">
+    <h1>About Me</h1>
+        <pre>|`````````````````````````````````````````````````````````````````````````````|<br>| Hello my name is Conner Cleland I wanted to always work with technology     | <br>| I worked with hardware for 2 years then I found a Free coding camp in MS    |<br>| it was called "BaseCamp Coding Academy" you recived a ceritficate after     |<br>| and you also get 45 college credits, I have always had a good passion for   |<br>| this software and hardware side of computers.                               |<br>|~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|</pre>
     </section>
-    <section>
+    <section id="projects-section" class="projects-section animate-on-load">
         <h1>Projects</h1>
         <div class="card">
             <div class="content">
@@ -44,6 +48,19 @@
                 <button class="btn">
                     <a href="https://github.com/ConnerCleland/Retro_Games">
                         Github Repo
+                    </a>
+                </button>
+            </div>
+        </div>
+        <div class="card">
+            <div class="content">
+                <h2 class="title">Mission Vigilant</h2>
+                <p class="copy">
+                    "A project where I put together after my brother passed my parents made a nonprofit called "Mission Vigilant"
+                </p>
+                <button class="btn">
+                    <a href="https://connercleland.github.io/Mobile_friend/" target="_blank">
+                        Open
                     </a>
                 </button>
             </div>
@@ -64,20 +81,72 @@
     
     <script>
         const letters = document.querySelectorAll('.letter');
-
+        const sections = ["about-section", "projects-section"];
+    
         letters.forEach((letter, index) => {
             const originalColor = getComputedStyle(letter).color;
-
+    
             setTimeout(() => {
                 letter.style.transform = 'translateY(-1rem)';
                 letter.style.color = 'yellow';
-
+    
                 setTimeout(() => {
                     letter.style.transform = 'translateY(0)';
                     letter.style.color = originalColor;
-                }, 250); 
-            }, index * 250); 
+    
+                    if (index === letters.length - 1) {
+                        sections.forEach(sectionId => {
+                            // Load "About" section after the "r" animation
+                            setTimeout(() => {
+                                animateSection(sectionId);
+                                fadeInSection(sectionId);
+                            }, sectionId === "about-section" ? 300 : 0);
+    
+                            // Load "Projects" section after the "d" animation
+                            setTimeout(() => {
+                                animateSection(sectionId);
+                                fadeInSection(sectionId);
+                            }, sectionId === "projects-section" ? 500 : 0);
+                        });
+                    }
+                }, 250);
+            }, index * 250);
         });
+    
+        function animateSection(sectionId) {
+            const section = document.getElementById(sectionId);
+    
+            if (section) {
+                const windowHeight = window.innerHeight;
+    
+                function checkPosition() {
+                    const positionFromTop = section.getBoundingClientRect().top;
+    
+                    if (positionFromTop - windowHeight <= 0) {
+                        section.classList.add("animate-on-load");
+                        window.removeEventListener("scroll", checkPosition);
+                    }
+                }
+    
+                window.addEventListener("scroll", checkPosition);
+                checkPosition();
+            }
+        }
+    
+        function fadeInSection(sectionId) {
+            const section = document.getElementById(sectionId);
+    
+            if (section) {
+                setTimeout(() => {
+                    section.classList.add("fade-in");
+                }, 300); 
+            }
+        }
     </script>
+    
+    
+    
+    
+    
 </body>
 </html>
