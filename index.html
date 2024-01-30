@@ -104,6 +104,10 @@
     </footer>
 
     <script>
+        window.addEventListener('beforeunload', function () {
+        // Set the scroll position to the top of the page
+        window.scrollTo(0, 0);
+    });
         const letters = document.querySelectorAll('.letter');
         const sections = ["about-section", "projects-section"];
     
