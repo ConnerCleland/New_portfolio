@@ -580,6 +580,9 @@ h1 {
 .card:nth-child(3):before {
     background-image: url('Pictures/Screenshot\ 2024-01-25\ 113034.png');
 }
+.card:nth-child(4):before {
+    background-image: url('Pictures/E.png');
+}
 .content {
     position: relative;
     display: flex;
